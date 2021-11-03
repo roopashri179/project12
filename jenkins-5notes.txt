@@ -1,0 +1,43 @@
+https://www.youtube.com/watch?v=vevWYkUEdUk
+
+
+Copying artifacts from Development job to Testing job
+============================================================
+1 Open the dashboard of Jenkins
+2 Click on Manage Jenkins
+3 Click on Manage Plugins
+4 Go to Available section--->Search for "Copy Artifact" plugin
+5 Click on Instal without restart
+6 Go to the dashboard of JEnkins
+7 Go to the Development job
+8 Click on Configure
+9 Go to Post Build actions
+10 Click on Add Post build action
+11 Click on Archive the artifacts
+12 Enter files to be archived as **\*.war
+13 Apply---->Save
+14 Go to the dashboard of Jenkins
+15 Go to the Testing job--->Click on Configure
+16 Go to Build section
+17 Click on Add build step
+18 Click on Copy artifacts from other project
+19 Enter project name as Development
+20 Apply--->save
+
+Stage 5 (Continuous Delivery)
+=====================================
+1 Open the dashboard of Jenkins
+2 Go to the Testing job
+3 Click on Configure
+4 Go to Post Build actions
+5 Click on Add Post build action
+6 Click on Deploy war/ear to container
+7 war/ear files: **\*.war
+  Context path: prodapp
+  Click on Add container---->Select tomcat8
+  Enter tomcat8 credentials
+  Tomcat url: private_ip_prodeserver:8080
+8 Apply--->Save
+9 Go to the dashboard of Jenkins
+10 Go to Development job and click on Build icon
+   All the 5 stages of CI-CD would be triggered
